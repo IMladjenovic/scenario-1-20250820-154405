@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FX Trading Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FX Trading Platform</h1>
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-indicator" id="statusIndicator"></span>
+                <span id="statusText">Connecting...</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <!-- Portfolio Section -->
+                <section class="portfolio-section">
+                    <h2>Portfolio</h2>
+                    <div class="portfolio-grid" id="portfolioGrid">
+                        <!-- Portfolio items will be populated here -->
+                    </div>
+                </section>
+
+                <!-- Currency Pairs Section -->
+                <section class="rates-section">
+                    <h2>Live Exchange Rates</h2>
+                    <div class="rates-grid" id="ratesGrid">
+                        <!-- Currency pairs will be populated here -->
+                    </div>
+                </section>
+
+                <!-- Trading Section -->
+                <section class="trading-section">
+                    <h2>Execute Trade</h2>
+                    <div class="trade-form">
+                        <div class="form-group">
+                            <label for="tradePair">Currency Pair:</label>
+                            <select id="tradePair">
+                                <option value="">Select a pair...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tradeType">Trade Type:</label>
+                            <select id="tradeType">
+                                <option value="buy">Buy</option>
+                                <option value="sell">Sell</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tradeAmount">Amount:</label>
+                            <input type="number" id="tradeAmount" step="0.01" min="0.01" placeholder="Enter amount">
+                        </div>
+                        
+                        <button id="executeTradeBtn" class="trade-btn">Execute Trade</button>
+                    </div>
+                    
+                    <div class="trade-result" id="tradeResult"></div>
+                </section>
+
+                <!-- Recent Trades Section -->
+                <section class="trades-section">
+                    <h2>Recent Trades</h2>
+                    <div class="trades-list" id="tradesList">
+                        <!-- Recent trades will be populated here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
